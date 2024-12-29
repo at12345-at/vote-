@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة التصويت</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .project {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #results {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h1>التصويت لأفضل مشروع</h1>
+
+<div class="project">
+    <h2>مشروع 1</h2>
+    <button onclick="vote('project1')">صوّت لمشروع 1</button>
+</div>
+<div class="project">
+    <h2>مشروع 2</h2>
+    <button onclick="vote('project2')">صوّت لمشروع 2</button>
+</div>
+<div class="project">
+    <h2>مشروع 3</h2>
+    <button onclick="vote('project3')">صوّت لمشروع 3</button>
+</div>
+
+<div id="results"></div>
+
+<script>
+    let votes = {
+        project1: 0,
+        project2: 0,
+        project3: 0
+    };
+
+    function vote(project) {
+        votes[project]++;
+        displayResults();
+    }
+
+    function displayResults() {
+        const resultsDiv = document.getElementById('results');
+        resultsDiv.innerHTML = `<h2>نتائج التصويت:</h2>
+            <p>مشروع 1: ${votes.project1} صوت</p>
+            <p>مشروع 2: ${votes.project2} صوت</p>
+            <p>مشروع 3: ${votes.project3} صوت</p>`;
+    }
+</script>
+
+</body>
+</html>
